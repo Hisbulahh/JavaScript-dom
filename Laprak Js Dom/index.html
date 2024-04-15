@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <!-- Sisipkan Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Sisipkan CSS tambahan untuk animasi -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="mb-4">ToDo List</h2>
+            </div>
+            <div class="col-md-6 text-right">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-secondary filter-btn active" data-filter="all">Semua</button>
+                    <button type="button" class="btn btn-secondary filter-btn" data-filter="completed">Selesai</button>
+                    <button type="button" class="btn btn-secondary filter-btn" data-filter="incomplete">Belum Selesai</button>
+                </div>
+            </div>
+        </div>
+        <form id="todoForm" class="mb-3">
+            <div class="input-group">
+                <input type="text" id="taskInput" class="form-control" placeholder="Tambahkan tugas baru" required>
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">Tambah</button>
+                </div>
+            </div>
+        </form>
+        <ul id="taskList" class="list-group"></ul>
+    </div>
+
+    <!-- Sisipkan Bootstrap JS dan JavaScript Anda -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="app.js"></script> <!-- File JavaScript Anda -->
+</body>
+</html>
