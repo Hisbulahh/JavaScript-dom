@@ -22,14 +22,13 @@ function addTask(text) {
     li.innerHTML = `
         <span>${text}</span>
         <button type="button" class="btn btn-danger btn-sm float-right ml-2 delete-btn">Hapus</button>
-        <button type="button" class="btn btn-success btn-sm float-right complete-btn">Selesai</button>
     `;
     taskList.appendChild(li);
 
     // Animasi fade-in saat menambahkan tugas baru
     li.classList.add('fade-in');
 
-    // Tambahkan event listener untuk tombol "Hapus" dan "Selesai"
+    // Tambahkan event listener untuk tombol "Hapus"
     li.querySelector('.delete-btn').addEventListener('click', function() {
         li.classList.add('remove');
         li.addEventListener('animationend', function() {
@@ -37,9 +36,18 @@ function addTask(text) {
         });
     });
 
-    li.querySelector('.complete-btn').addEventListener('click', function() {
+    const completeBtn = document.createElement('button');
+    completeBtn.type = 'button';
+    completeBtn.className = 'btn btn-success btn-sm float-right complete-btn';
+    completeBtn.textContent = 'Selesai';
+    completeBtn.addEventListener('click', function() {
         li.classList.toggle('completed'); // Tambahkan atau hapus class completed untuk menandai tugas selesai
+        if (li.classList.contains('completed')) {
+            li.querySelector('.complete-btn').remove(); // Hapus tombol "Selesai" jika tugas sudah selesai
+            li.querySelector('span').style.textDecoration = 'line-through'; // Coret teks tugas yang sudah selesai
+        }
     });
+    li.appendChild(completeBtn);
 }
 
 // Event listener untuk filter tugas
